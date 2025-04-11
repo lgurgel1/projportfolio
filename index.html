@@ -16,18 +16,18 @@
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#jogo">Jogo Senha</a></li>
-                <li><a href="#contato">Contato</a></li>
             </ul>
         </div>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Olá, eu sou <span class="highlight">Seu Nome</span></h1>
-            <p class="typing-text">Desenvolvedor Full Stack</p>
+            <img src="images/eu.png" alt="Sua Foto" class="profile-pic">
+            <h1>Olá, eu sou <span class="highlight">Lucas Gurgel</span></h1>
+            <p class="typing-text">desenvolvedor</p>
             <div class="cta-buttons">
+                <a href="#sobre" class="btn secondary">Sobre Mim</a>
                 <a href="#projetos" class="btn primary">Ver Projetos</a>
-                <a href="#contato" class="btn secondary">Contato</a>
             </div>
         </div>
     </section>
@@ -36,7 +36,8 @@
         <h2>Sobre Mim</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>Sou um desenvolvedor apaixonado por criar soluções inovadoras e experiências digitais excepcionais. Com experiência em desenvolvimento web e mobile, busco sempre entregar projetos de alta qualidade.</p>
+                <p>Sou um desenvolvedor com um amplo conjunto de habilidades, unindo criatividade e conhecimento técnico para construir soluções digitais impactantes. Tenho experiência sólida em desenvolvimento web, análise de dados e visualização de informações, sempre focado em entregar projetos eficientes, modernos e de alta qualidade.</p>
+                <br>
                 <div class="skills">
                     <h3>Habilidades</h3>
                     <div class="skill-tags">
@@ -45,31 +46,55 @@
                         <span>JavaScript</span>
                         <span>React</span>
                         <span>Node.js</span>
+                        <span>Python</span>
+                        <span>SQL</span>
+                        <span>Power BI</span>
+                        <span>Excel</span>
+                        <span>Git</span>
+                        <span>GitHub</span>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="projetos" class="projects">
         <h2>Projetos</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <img src="https://via.placeholder.com/300x200" alt="Projeto 1">
-                <h3>Projeto 1</h3>
-                <p>Descrição do projeto 1</p>
+                <h3>Portfólio Web</h3>
+                <p>Site pessoal desenvolvido com HTML, CSS e JavaScript.</p>
                 <div class="project-links">
-                    <a href="#" class="btn">Ver Demo</a>
-                    <a href="#" class="btn">GitHub</a>
+                    <a href="https://github.com/lucasgurgeln/progwebmobile" target="_blank" class="btn github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
                 </div>
             </div>
             <div class="project-card">
-                <img src="https://via.placeholder.com/300x200" alt="Projeto 2">
-                <h3>Projeto 2</h3>
-                <p>Descrição do projeto 2</p>
+                <h3>Análise de Dados</h3>
+                <p>Análise Exploratória de Dados de Logística com Python.</p>
                 <div class="project-links">
-                    <a href="#" class="btn">Ver Demo</a>
-                    <a href="#" class="btn">GitHub</a>
+                    <a href="https://github.com/lgurgel1/Exploratory-Data-Analysis-Project" target="_blank" class="btn github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Site Star Hotel</h3>
+                <p>Site Real desenvolvido com React, HTML, Back4App, CSS.</p>
+                <div class="project-links">
+                    <a href="https://github.com/lgurgel1/projeto_web" target="_blank" class="btn github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Ver Todos</h3>
+                <p>Confira todos os meus projetos no GitHub.</p>
+                <div class="project-links">
+                    <a href="https://github.com/lgurgel1" target="_blank" class="btn github-btn">
+                        <i class="fab fa-github"></i> Ver Repositórios
+                    </a>
                 </div>
             </div>
         </div>
@@ -79,14 +104,18 @@
         <h2>Jogo Senha</h2>
         <div class="game-container">
             <div class="game-info">
-                <p>Tente adivinhar o número de 4 dígitos! Cada dígito é único.</p>
-                <p>B = Número correto na posição correta</p>
-                <p>C = Número correto na posição errada</p>
+                <p>Tente adivinhar o número secreto de 4 dígitos!</p>
+                <p>Regras:</p>
+                <ul>
+                    <li>O número tem exatamente 4 dígitos (0-9)</li>
+                    <li>B = Número correto na posição correta</li>
+                    <li>C = Número correto na posição errada</li>
+                </ul>
             </div>
             <div class="game-input">
-                <input type="text" id="guess-input" maxlength="4" placeholder="Digite sua tentativa">
+                <input type="text" id="guess-input" maxlength="4" placeholder="Digite 4 dígitos">
                 <button id="guess-btn">Tentar</button>
-                <button id="show-answer" class="secondary">Mostrar Resposta</button>
+                <button id="show-answer" class="secondary">Ver Resposta</button>
             </div>
             <div class="game-history">
                 <h3>Histórico de Tentativas</h3>
@@ -95,33 +124,11 @@
         </div>
     </section>
 
-    <section id="contato" class="contact">
-        <h2>Contato</h2>
-        <div class="contact-content">
-            <form id="contact-form">
-                <div class="form-group">
-                    <input type="text" id="name" required placeholder="Nome">
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" required placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <textarea id="message" required placeholder="Mensagem"></textarea>
-                </div>
-                <button type="submit" class="btn primary">Enviar Mensagem</button>
-            </form>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </section>
-
     <footer>
-        <p>&copy; 2024 Seu Nome. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Lucas Gurgel. Todos os direitos reservados.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

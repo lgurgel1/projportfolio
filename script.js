@@ -1,6 +1,6 @@
 // Animação de digitação para o texto do hero
 const typingText = document.querySelector('.typing-text');
-const texts = ['Desenvolvedor Full Stack', 'Desenvolvedor Mobile', 'Entusiasta de Tecnologia'];
+const texts = ['Desenvolvedor Full Stack', 'Analista de Dados', 'Entusiasta de Tecnologia'];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -40,16 +40,11 @@ class BullsAndCows {
     }
 
     generateSecretNumber() {
-        const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        const secret = [];
-        
+        let secret = '';
         for (let i = 0; i < 4; i++) {
-            const randomIndex = Math.floor(Math.random() * numbers.length);
-            secret.push(numbers[randomIndex]);
-            numbers.splice(randomIndex, 1);
+            secret += Math.floor(Math.random() * 10).toString();
         }
-        
-        return secret.join('');
+        return secret;
     }
 
     checkGuess(guess) {
@@ -57,43 +52,77 @@ class BullsAndCows {
             return { valid: false, message: 'Por favor, insira um número de 4 dígitos.' };
         }
 
-        if (new Set(guess).size !== 4) {
-            return { valid: false, message: 'Todos os dígitos devem ser diferentes.' };
-        }
-
         let bulls = 0;
         let cows = 0;
 
+        // Cria cópias dos números para contar os bois (B)
+        const secretArray = this.secretNumber.split('');
+        const guessArray = guess.split('');
+
+        // Conta os bois (posição correta)
         for (let i = 0; i < 4; i++) {
-            if (guess[i] === this.secretNumber[i]) {
+            if (guessArray[i] === secretArray[i]) {
                 bulls++;
-            } else if (this.secretNumber.includes(guess[i])) {
-                cows++;
+                secretArray[i] = 'x';
+                guessArray[i] = 'y';
             }
+        }
+
+        // Conta as vacas (número correto em posição errada)
+        for (let i = 0; i < 4; i++) {
+            if (guessArray[i] !== 'y') {
+                const index = secretArray.indexOf(guessArray[i]);
+                if (index !== -1) {
+                    cows++;
+                    secretArray[index] = 'x';
+                }
+            }
+        }
+
+        const totalCorrect = bulls + cows;
+        let correctMessage = '';
+        
+        if (bulls === 4) {
+            correctMessage = 'Parabéns! Você venceu! 🎉';
+        } else if (totalCorrect > 0) {
+            const numeroTexto = ['zero', 'um', 'dois', 'três'];
+            correctMessage = `${bulls}B ${cows}C - Você acertou ${numeroTexto[totalCorrect]} número${totalCorrect > 1 ? 's' : ''}!`;
+        } else {
+            correctMessage = `${bulls}B ${cows}C - Nenhum número correto`;
         }
 
         const result = {
             guess,
             bulls,
             cows,
-            message: `${bulls}B ${cows}C`
+            message: correctMessage
         };
 
         this.history.push(result);
 
         if (bulls === 4) {
             this.gameOver = true;
-            result.message += ' - Parabéns! Você venceu!';
         }
 
         return { valid: true, ...result };
+    }
+
+    resetGame() {
+        this.secretNumber = this.generateSecretNumber();
+        this.history = [];
+        this.gameOver = false;
+        this.updateHistory();
+        const guessInput = document.getElementById('guess-input');
+        const guessBtn = document.getElementById('guess-btn');
+        guessInput.value = '';
+        guessInput.disabled = false;
+        guessBtn.disabled = false;
     }
 
     setupEventListeners() {
         const guessInput = document.getElementById('guess-input');
         const guessBtn = document.getElementById('guess-btn');
         const showAnswerBtn = document.getElementById('show-answer');
-        const historyList = document.getElementById('history-list');
 
         guessBtn.addEventListener('click', () => {
             const guess = guessInput.value;
@@ -108,8 +137,10 @@ class BullsAndCows {
             guessInput.value = '';
 
             if (this.gameOver) {
-                guessInput.disabled = true;
-                guessBtn.disabled = true;
+                setTimeout(() => {
+                    alert('Novo jogo começando!');
+                    this.resetGame();
+                }, 1000);
             }
         });
 
@@ -131,7 +162,16 @@ class BullsAndCows {
         this.history.slice().reverse().forEach(result => {
             const historyItem = document.createElement('div');
             historyItem.className = 'history-item';
-            historyItem.textContent = `${result.guess} - ${result.message}`;
+            
+            const guessText = document.createElement('div');
+            guessText.textContent = `Tentativa: ${result.guess}`;
+            
+            const resultText = document.createElement('span');
+            resultText.textContent = result.message;
+            
+            historyItem.appendChild(guessText);
+            historyItem.appendChild(resultText);
+            
             historyList.appendChild(historyItem);
         });
     }
@@ -139,20 +179,6 @@ class BullsAndCows {
 
 // Inicializar o jogo
 const game = new BullsAndCows();
-
-// Formulário de contato
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // Aqui você pode adicionar a lógica para enviar o formulário
-    alert('Mensagem enviada com sucesso!');
-    contactForm.reset();
-});
 
 // Smooth scroll para links de navegação
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
