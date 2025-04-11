@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Portfólio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#jogo">Jogo Senha</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Olá, eu sou <span class="highlight">Seu Nome</span></h1>
+            <p class="typing-text">Desenvolvedor Full Stack</p>
+            <div class="cta-buttons">
+                <a href="#projetos" class="btn primary">Ver Projetos</a>
+                <a href="#contato" class="btn secondary">Contato</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="about">
+        <h2>Sobre Mim</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Sou um desenvolvedor apaixonado por criar soluções inovadoras e experiências digitais excepcionais. Com experiência em desenvolvimento web e mobile, busco sempre entregar projetos de alta qualidade.</p>
+                <div class="skills">
+                    <h3>Habilidades</h3>
+                    <div class="skill-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>React</span>
+                        <span>Node.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="projects">
+        <h2>Projetos</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Projeto 1">
+                <h3>Projeto 1</h3>
+                <p>Descrição do projeto 1</p>
+                <div class="project-links">
+                    <a href="#" class="btn">Ver Demo</a>
+                    <a href="#" class="btn">GitHub</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Projeto 2">
+                <h3>Projeto 2</h3>
+                <p>Descrição do projeto 2</p>
+                <div class="project-links">
+                    <a href="#" class="btn">Ver Demo</a>
+                    <a href="#" class="btn">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jogo" class="game">
+        <h2>Jogo Senha</h2>
+        <div class="game-container">
+            <div class="game-info">
+                <p>Tente adivinhar o número de 4 dígitos! Cada dígito é único.</p>
+                <p>B = Número correto na posição correta</p>
+                <p>C = Número correto na posição errada</p>
+            </div>
+            <div class="game-input">
+                <input type="text" id="guess-input" maxlength="4" placeholder="Digite sua tentativa">
+                <button id="guess-btn">Tentar</button>
+                <button id="show-answer" class="secondary">Mostrar Resposta</button>
+            </div>
+            <div class="game-history">
+                <h3>Histórico de Tentativas</h3>
+                <div id="history-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact">
+        <h2>Contato</h2>
+        <div class="contact-content">
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" required placeholder="Nome">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" required placeholder="Mensagem"></textarea>
+                </div>
+                <button type="submit" class="btn primary">Enviar Mensagem</button>
+            </form>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Seu Nome. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
